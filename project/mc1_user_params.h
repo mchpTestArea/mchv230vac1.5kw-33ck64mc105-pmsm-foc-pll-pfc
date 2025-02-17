@@ -82,7 +82,7 @@ extern "C" {
 #ifdef LEADSHINE_EL5_M0400
     #define POLEPAIRS           5  /* Motor's number of pole pairs */
     #define NOMINAL_SPEED_RPM   3000 /* Nominal speed of the motor in RPM */
-    #define MAXIMUM_SPEED_RPM   4000 /* Maximum speed of the motor in RPM */
+    #define MAXIMUM_SPEED_RPM   5000 /* Maximum speed of the motor in RPM */
     #define MINIMUM_SPEED_RPM   500 /* Minimum speed of the motor in RPM*/
     /*Motor Rated Line - Line RMS Voltage*/
     #define NOMINAL_VOLTAGE_L_L  (float)220
