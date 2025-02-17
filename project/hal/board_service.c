@@ -197,7 +197,7 @@ void HAL_TrapHandler(void)
 
 void HAL_ResetPeripherals(void)
 {
-    uint16_t adcBuffer = 0;
+    uint16_t __attribute__((__unused__)) adcBuffer = 0;
 	   
     adcBuffer = MC1_ClearADCIF_ReadADCBUF();
     MC1_ClearADCIF();
