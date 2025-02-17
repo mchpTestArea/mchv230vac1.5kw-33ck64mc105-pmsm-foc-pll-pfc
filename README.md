@@ -29,10 +29,11 @@ To clone or download this application firmware on GitHub,
 ### 2.3 Hardware Tools Required for the Demonstration
 - MCHV-230VAC-1.5kW Development Board  [(EV78U65A)](https://www.microchip.com/en-us/development-tool/ev78u65a) 
 - dsPIC33CK64MC105 Motor Control Dual In-line Module [(EV03J37A)](https://www.microchip.com/en-us/development-tool/ev03j37a)
-- AC Source in the range 130-240V<sub>ac rms</sub> , 50Hz
+- Leadshine (EL5-M0400-1-24) 400W 220VAC Servo Motor[(AC300025)](https://www.microchip.com/en-us/development-tool/AC300025)
+- AC Source for powering the Development Board: 130-240V<sub>ac rms</sub> , 50Hz
 
 > **Note:** </br>
-> All items listed under the section Hardware Tools Required for the Demonstration are available at [microchip DIRECT](https://www.microchipdirect.com/) 
+>  Items [EV78U65A](https://www.microchip.com/en-us/development-tool/ev78u65a), [EV03J37A](https://www.microchip.com/en-us/development-tool/ev03j37a) and [AC300025](https://www.microchip.com/en-us/development-tool/AC300025) are available to purchase directly from [microchip DIRECT](https://www.microchipdirect.com/) 
 </br>
 
 ## 3. HARDWARE SETUP
@@ -46,16 +47,15 @@ Refer ["Motor Control High Voltage 230VAC-1.5kW Development Board User's Guide"]
      <p align="left" >
      <img  src="images/Table_internalopamp.png"width="800"/></p>
 
-2. Ensure the development board is not powered and it is fully discharged. Verify the LEDs **LD1**(Green) and **LD4**(Red) on Power Factor Correction Board and **LD1**(Green) on Motor Control Inverter Board are not glowing.
+2. Ensure the development board is not powered and it is fully discharged. Verify the LEDs **LD1**(Green) and **LD4**(Red) on Power Factor Correction Board and **LD1**(Green) on Motor Control Inverter Board are not glowing. 
+
 
      <p align="left" >
      <img  src="images/MCHVnotpowered.jpg" width="500"></p>
 
 
-3. When the LEDs are turned off, open the top cover of the enclosure and measure the DC Bus voltage across the terminals which reads approximately '0 VDC'. If the voltage is greater than 1V, wait until it is completely discharged and then follow the steps from 2.
-
-
-4. Remove the thumb screw and open the top cover of the enclosure. Insert the **dsPIC33CK64MC105 Motor Control DIM** into the DIM Interface **connector J2** on the development board. Make sure the DIM is placed correctly and oriented before going ahead. Close the top cover of the enclosure and secure it with the thumb screw.
+3. Remove the thumb screw and open the top cover of the enclosure and measure the DC Bus voltage across the terminals which reads approximately '0 VDC'. If the voltage is greater than 1V, wait until it is completely discharged.
+4. Insert the **dsPIC33CK64MC105 Motor Control DIM** into the DIM Interface **connector J2** on the development board. Make sure the DIM is placed correctly and oriented before going ahead. Close the top cover of the enclosure and secure it with the thumb screw.
 
      <p align="left" >
      <img  src="images/dimconnected.jpg" width="600"/></p>
@@ -66,7 +66,7 @@ Refer ["Motor Control High Voltage 230VAC-1.5kW Development Board User's Guide"]
      <p align="left" >
       <img  src="images/motorconnection.png" width="600"/></p>
 
-6. Power the PFC board using a controlled AC source by applying a voltage within in the range 130-240V<sub>ac rms</sub> and a frequency of 50Hz through IEC connector **connector J1** provided on the PFC board. 
+6. Power the PFC board using a controlled AC source by applying a voltage within in the range 130-240V<sub>ac rms</sub> and a frequency of 50Hz through IEC connector **connector J1** provided on the PFC board. If the supply frequency is 60Hz, refer to point No: 3 in the section [Basic Demonstration](#52-basic-demonstration) to change the input frequency in firmware parameters . 
 
       <p align="left">
       <img  src="images/mchv_input.png" width="600"/></p>
@@ -134,7 +134,7 @@ Follow the below instructions, step by step, to set up and run the motor control
           <p align="left" >
           <img  src="images/pfc_power_control.png" width="200"></p>
 	
-     - Ensure that the macro <code>**PFC_INPUT_FREQUENCY</code>** in the header file <code>**pfc_userparams.h**</code> is specified as 50Hz to match the input supply frequency.
+     - Update the input supply frequency by setting the macro <code>**PFC_INPUT_FREQUENCY</code>** in the header file <code>**pfc_userparams.h**</code>
           <p align="left" >
           <img  src="images/def_pfc_input_frequency.png" width="380"></p>
 
@@ -193,8 +193,9 @@ Follow the below instructions, step by step, to set up and run the motor control
      <img  src="images/VDC_measure.png" width="550"/></p>
 
 > **Note:**</br>
-> In the event of any discrepancies, please refer to the Board Inspection Checklist section in the Motor Control High Voltage 230VAC-1.5kW Development Board User’s Guide [(DS70005576)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-High-Voltage-230VAC-1.5kW-Dev-Board-Users-Guide-DS70005576.pdf).
-
+> Please refer to the Board Inspection Checklist section in the Motor Control High Voltage 230VAC-1.5kW Development Board User’s Guide [(DS70005576)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-High-Voltage-230VAC-1.5kW-Dev-Board-Users-Guide-DS70005576.pdf)
+to verify the power supply outputs of the Development Board when a functional failure is suspected or observed.
+ 
 
 
 9. Run or stop the motor by pressing the push button **BUTTON 1**. The motor should start spinning smoothly in one direction. Ensure that the motor is spinning smoothly without any vibration. The LED **LED2** is turned **ON** to show the button is pressed to start the motor.
